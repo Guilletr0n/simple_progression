@@ -8,18 +8,17 @@
  */
 
 var transpose = 0;
-
-var bassline = [ 3,5,7,8,10,12,14,15];
+var notes = [ 3,5,7,8,10,12,14,15];
 
 export function dsp(t){
   
-  var melody = note(bassline[Math.floor(t * 2) % bassline.length], 0);
+  var melody = note(notes[Math.floor(t * 2) % notes.length], 0);
   
   var tone =   sin(melody, t);
 
   // mixer
   return 0.4 * (
-    clip(0.1, tone)
+    clip(0.4, tone)
   );
 }
 
